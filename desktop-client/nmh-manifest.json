@@ -1,0 +1,9 @@
+{
+  "name": "com.showdownsoftware.acce1er8or",
+  "description": "Desktop client for Acce1er8or Google Chrome extension",
+  "path": "Acce1er8or.exe",
+  "type": "stdio",
+  "allowed_origins": [
+    "chrome-extension://ichjocgihgmpifnjpdhkfndofnhnbkmn/"
+  ]
+}

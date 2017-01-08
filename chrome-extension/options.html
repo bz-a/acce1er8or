@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Acce1er8or Options</title>
+		<style type="text/css">
+		.heading {
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.sub-heading {
+			font-size: 18px;
+		}
+		#filter-table {
+			border: 1px solid black;
+			width: 100%;
+			min-height:16px;
+			border-collapse: collapse;
+			border-spacing: 0px;
+		}
+		.filter-item {
+			border: 1px solid black;
+			padding-left:4px;
+		}
+		.filter-item-empty {
+			color: #777;
+		}
+		#options-list {
+			list-style:none;
+			margin:0;
+			padding: 0;
+		}
+		#extension {
+			display: inline;
+			vertical-align: middle;
+			margin: 0px;
+			padding: 0px;
+			padding-left: 4px;
+			resize: none;
+			white-space: nowrap;
+			width:100%;
+		}
+		#add-filter {
+			display: inline;
+			vertical-align: middle;
+			margin: 0px;
+			padding:0px;
+		}
+		button {
+			width:80px;
+			font-size: 16px;
+		}
+		table, tr, td {
+			margin: 0px;
+			padding: 0px;
+			border-collapse:collapse;
+		}
+		hr {
+			width:100%;
+		}
+		.section-header {
+			display:inline-block;
+			margin-bottom:4px;
+			white-space:nowrap;
+			font-size:16px;
+		}
+		</style>
+	</head>
+	<body>
+		<span class='heading'>Desktop Client</span><br>
+		<br>
+		This extension requires an external desktop client that can be downloaded by following the link below. The desktop client must be run at least once to register it's location with Chrome before this extension will be able to communicate with it.<br>
+		<br>
+		<a href="https://github.com/nicolasjinchereau/acce1er8or/releases">
+			https://github.com/nicolasjinchereau/acce1er8or/releases
+		</a>
+		<br>
+		<br>
+		<hr>
+		<br>
+		<span class='heading'>Filter</span><br>
+		<br>
+		<div class="section-header">Filter Type</div>
+		<select id="filterMode" style="font-size:16px; position:relative; width:100%;"
+			title="choose whether files with extensions listed below will be ignored or accelerated">
+			<option value="1" title="files with extensions listed below will be accelerated">
+				inclusive
+			</option>
+			<option value="0" title="files with extensions listed below will be ignored">
+				exclusive
+			</option>
+		</select>
+		<br>
+		<br>
+		<div class="section-header">Filtered Extensions</div>
+		<table id="filter-table">
+			<!-- list of file extensions -->
+		</table>
+		<table><tr>
+				<td><textarea id="extension" rows="1" cols="50" maxlength="32" placeholder="file extension (*, avi, mp3, etc..)"></textarea></td>
+				<td><button id="add-filter">Add</button></td>
+			</tr></table>
+		<br>
+		<hr>
+		<br>
+		<div style="text-align:right;">
+			<button id="apply" disabled style="margin-right:0px;">Apply</button>
+		</div>
+		<script src="options.js"></script>
+	</body>
+</html>

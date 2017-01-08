@@ -1,0 +1,11 @@
+obj/
+/Debug/
+/Release/
+!*.exe
+!*.dll
+.vs
+*.exe.config
+*.exe.manifest
+*.vshost.exe
+*.VC.opendb
+*.VC.db
