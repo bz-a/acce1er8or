@@ -1,0 +1,32 @@
+{
+	"manifest_version": 2,
+	"minimum_chrome_version": "55",
+	"version": "1.0.5",
+	
+	"name": "Acce1er8or Download Manager",
+	"short_name": "Acce1er8or",
+	"description": "Manages and accelerates downloads by up to 8 times.",
+	"icons": {
+		"16": "icon16.png",
+		"48": "icon48.png",
+		"128": "icon128.png"
+	},
+	"browser_action": {
+		"default_icon": "icon16.png",
+		"default_popup": "popup.html"
+	},
+	"options_ui": {
+		"page": "options.html",
+		"chrome_style": true
+	},
+	"background": {
+		"scripts": [
+			"background.js"
+		]
+	},
+	"permissions": [
+		"nativeMessaging",
+		"downloads",
+		"storage"
+	]
+}
