@@ -376,7 +376,8 @@ namespace ShowdownSoftware
                             return;
                         }
 
-                        int bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length, ctoken);
+                        int needed = (int)Math.Min(chunk.size - chunk.bytesReceived, buffer.Length);
+                        int bytesRead = await stream.ReadAsync(buffer, 0, needed, ctoken);
                         if(bytesRead > 0)
                         {
                             await chunk.stream.WriteAsync(buffer, 0, bytesRead, ctoken);
@@ -390,7 +391,8 @@ namespace ShowdownSoftware
                             lastReceived = chunk.bytesReceived;
                             chunk.bytesPerSecond = received / (READ_TIMEOUT / 1000);
 
-                            if(chunk.bytesPerSecond < MIN_TRANSFER_SPEED)
+                            if(chunk.bytesReceived < chunk.size
+                            && chunk.bytesPerSecond < MIN_TRANSFER_SPEED)
                                 throw new ChunkStalledException();
                         }
                     }

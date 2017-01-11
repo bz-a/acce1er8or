@@ -1,6 +1,7 @@
 obj/
 /Debug/
 /Release/
+/desktop-client/bin/
 !*.exe
 !*.dll
 .vs
