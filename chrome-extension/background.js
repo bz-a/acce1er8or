@@ -5,23 +5,26 @@
 
 var filterMode = 1;
 var filters = ["*"];
+var isEnabled = true;
 
 chrome.storage.sync.get(
 	{
 		"filterMode": 1,
-		"filters": ['*']
+		"filters": ['*'],
+		"isEnabled": true
 	},
 	function(items)
 	{
 		filterMode = items["filterMode"];
 		filters = items["filters"];
+		isEnabled = items["isEnabled"];
 	}
 );
 
 chrome.downloads.onDeterminingFilename.addListener(
 	function(item)
 	{
-		if(item.fileSize < 1000000)
+		if(!isEnabled || item.fileSize < 1000000)
 			return;
 		
 		var url = item.finalUrl.split(/[?#]/)[0];

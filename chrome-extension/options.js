@@ -40,21 +40,24 @@ function insertFilter(table, filt, i)
 	}
 }
 
-function updateBackgroundSettings(filterMode, filters) {
+function updateBackgroundSettings(filterMode, filters, isEnabled) {
 	var background = chrome.extension.getBackgroundPage();
 	background.filterMode = filterMode;
 	background.filters = filters;
+	background.isEnabled = isEnabled;
 }
 
 function restoreOptions()
 {
 	chrome.storage.sync.get(
 		{
-			filterMode: 1,
-			filters: ['*']
+			"filterMode": 1,
+			"filters": ['*'],
+			"isEnabled": true
 		},
 		function(items)
 		{
+			document.getElementById('isEnabledCheck').checked = items["isEnabled"];
 			document.getElementById('filterMode').value = items["filterMode"];
 			
 			var filterTable = document.getElementById('filter-table');
@@ -75,6 +78,7 @@ function saveOptions()
 {
 	var filterMode = document.getElementById('filterMode').value;
 	var filters = [];
+	var isEnabled = document.getElementById('isEnabledCheck').checked;
 	
 	var filterTable = document.getElementById('filter-table');
 	var len = filterTable.rows.length;
@@ -91,17 +95,18 @@ function saveOptions()
 	chrome.storage.sync.set(
 		{
 			"filterMode": filterMode,
-			"filters": filters
+			"filters": filters,
+			"isEnabled": isEnabled
 		},
 		function()
 		{
 			document.getElementById('apply').disabled = true;
-			updateBackgroundSettings(filterMode, filters);
+			updateBackgroundSettings(filterMode, filters, isEnabled);
 		}
 	);
 }
 
-function onFilterModeChanged() {
+function onOptionChanged() {
 	document.getElementById('apply').disabled = false;
 }
 
@@ -127,5 +132,6 @@ function addFilter()
 
 document.addEventListener('DOMContentLoaded', restoreOptions);
 document.getElementById('apply').addEventListener('click', saveOptions);
-document.getElementById('filterMode').addEventListener('change', onFilterModeChanged);
+document.getElementById('filterMode').addEventListener('change', onOptionChanged);
+document.getElementById('isEnabledCheck').addEventListener('change', onOptionChanged);
 document.getElementById('add-filter').addEventListener('click', addFilter);

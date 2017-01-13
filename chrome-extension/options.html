@@ -63,17 +63,30 @@
 			white-space:nowrap;
 			font-size:16px;
 		}
+		.valign-middle {
+			vertical-align: middle;
+		}
 		</style>
 	</head>
 	<body>
 		<span class='heading'>Desktop Client</span><br>
 		<br>
-		This extension requires an external desktop client that can be downloaded by following the link below. The desktop client must be run at least once to register it's location with Chrome before this extension will be able to communicate with it.<br>
+		This extension requires a desktop client that can be downloaded at the link below. The desktop client must be run at least once before this extension will be able to communicate with it.<br>
 		<br>
 		<a href="https://github.com/nicolasjinchereau/acce1er8or/releases">
 			https://github.com/nicolasjinchereau/acce1er8or/releases
 		</a>
 		<br>
+		<br>
+		<hr>
+		<br>
+		<span class='heading'>Enabled</span><br>
+		<br>
+		<div>
+			<label for="isEnabledCheck"><input type="checkbox" id="isEnabledCheck" class="valign-middle"/>
+				<span class="valign-middle"> Use Acce1er8or to download files</span>
+			</label>
+		</div>
 		<br>
 		<hr>
 		<br>
@@ -101,7 +114,6 @@
 			</tr></table>
 		<br>
 		<hr>
-		<br>
 		<div style="text-align:right;">
 			<button id="apply" disabled style="margin-right:0px;">Apply</button>
 		</div>

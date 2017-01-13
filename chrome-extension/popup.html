@@ -18,7 +18,7 @@
 		font-family:Georgia, serif;
 		font-weight: bold;
 	}
-	.options {
+	.button-face {
 		background-color:#d0d5d9;
 		text-align:left;
 		padding:4px 10px;
@@ -26,8 +26,14 @@
 		cursor:pointer;
 		cursor:hand;
 	}
-	.options:hover {
+	.button-face:hover {
 		background-color:#d1e6ed;
+	}
+	#isEnabled {
+		color:#191919;
+		font-size:16px;
+		font-family:Tahoma, Geneva, sans-serif;
+		margin-left:4px;
 	}
 	#options {
 		color:#191919;
@@ -49,10 +55,16 @@
 		<div class="title">
 			Acce1er8or
 		</div>
-		<div class="options">
+		<div id="enabledButton" class="button-face" style="margin-bottom:2px;">
 			<table><tr>
-				<td><img src="options16.png" style="vertical-align:middle;"/></td>
-				<td><span id="options" style="vertical-align:middle;">Options</span></td>
+				<td><img id="isEnabledImg" src="checkmark16.png" style="vertical-align:middle; user-select:none;"/></td>
+				<td><span id="isEnabled" style="vertical-align:middle; user-select:none;">Enabled</span></td>
+			</tr></table>
+		</div>
+		<div id="optionsButton" class="button-face">
+			<table><tr>
+				<td><img src="options16.png" style="vertical-align:middle; user-select:none;"/></td>
+				<td><span id="options" style="vertical-align:middle; user-select:none;">Options</span></td>
 			</tr></table>
 		</div>
 		<script src="popup.js"></script>
